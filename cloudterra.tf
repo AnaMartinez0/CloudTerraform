@@ -59,20 +59,6 @@ resource "aws_internet_gateway" "igw_ana_cloud" {
     }
 }
 
-resource "aws_route_table" "route_table_ana" {
-    vpc_id = aws_vpc.vpc_cloud_ana.id
-    
-    route {
-        cidr_block = "0.0.0.0/0"
-        gateway_id = aws_internet_gateway.igw_ana_cloud.id
-        
-    }
-        
-    tags = {
-        Name = "Tabla_enrrutmiento_ana"
-    }
-}
-
 resource "aws_route_table" "route_table_ana_public" {
     vpc_id = aws_vpc.vpc_cloud_ana.id
     
@@ -83,7 +69,7 @@ resource "aws_route_table" "route_table_ana_public" {
     }
         
     tags = {
-        Name = "Tabla_enrrutmiento_ana"
+        Name = "Tabla_enrrutmientoPublic_ana"
     }
 }
 
@@ -97,7 +83,7 @@ resource "aws_route_table" "route_table_ana_private" {
     }
         
     tags = {
-        Name = "Tabla_enrrutmiento_ana"
+        Name = "Tabla_enrrutmientoPrivate_ana"
     }
 }
 
